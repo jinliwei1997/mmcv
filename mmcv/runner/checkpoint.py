@@ -258,6 +258,11 @@ def load_checkpoint(model,
     if list(state_dict.keys())[0].startswith('module.'):
         state_dict = {k[7:]: v for k, v in checkpoint['state_dict'].items()}
     # load state_dict
+    import pdb
+    pdb.set_trace()
+    for key in state_dict.keys():
+        print(key)
+        break
     load_state_dict(model, state_dict, strict, logger)
     return checkpoint
 
